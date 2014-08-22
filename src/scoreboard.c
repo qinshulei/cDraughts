@@ -14,7 +14,7 @@
  * empty*/
 void init_scoreboard(struct result * scoreboard)
 {
-    /* Delete this comment and write your own comments and code here*/
+  memset(scoreboard, '\0', 10*2*(MAX_NAME_LEN+1));
 }
 
 /* Req 9 -Adds a result to the beginning of the scoreboard*/

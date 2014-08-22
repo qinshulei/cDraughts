@@ -16,7 +16,7 @@
 #define MOVE_LEN 8
 
 struct location
-{
+n{
     unsigned x, y;
 };
 

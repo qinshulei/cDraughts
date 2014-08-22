@@ -1,6 +1,6 @@
 /***********************************************************************
  * COSC1076 - Advanced Programming Techniques
- * Semester 2 2014 Assignment #1 
+ * Semester 2 2014 Assignment #1
  * Full Name        : EDIT HERE
  * Student Number   : EDIT HERE
  * Course Code      : EDIT HERE
@@ -10,17 +10,17 @@
 #include "game.h"
 
 /* Requirement 7 - Controls the flow of play in the game*/
-void play_game(char * player_one, char * player_two, 
+void play_game(char * player_one, char * player_two,
     struct result * outcome)
 {
     enum cell_contents gameboard[BOARDWIDTH][BOARDHEIGHT];
-    
-    /* Delete this comment and write your own comments and code here*/
-
+    init_gameboard(gameboard);
+    display_gameboard(gameboard);
+    printf("user1 : %s , user2 : %s \n", player_one, player_two);
 }
 
 /* Requirement 5 - Handles the logic for the player's turn*/
-void player_turn(struct player * current, 
+void player_turn(struct player * current,
     enum cell_contents board[][BOARDWIDTH])
 {
     /* Delete this comment and write your own comments and code here*/
