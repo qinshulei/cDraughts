@@ -73,7 +73,7 @@ void player_turn(struct player * current,
     break;
   case ATTACK:
     printf("You attacked! Would you like to attempt a further attack move with this token? [y for yes, n for no or press enter or ctrl-D to quit the current game]:");
-    is_attack = getChar();
+    is_attack = getchar();
     read_rest_of_line();
     if(is_attack == 'y'){
       
