@@ -181,8 +181,6 @@ BOOLEAN test_for_winner(struct player * next_player,
   struct move possible_king_move_left,possible_king_move_right;
   BOOLEAN has_moves = TRUE;
 
-  //return TRUE;
-
   for( i = 0; i <  BOARDHEIGHT; i++ ){
     for (j = 0; j < BOARDWIDTH; j++) {
       if(board[i][j] == RED && next_player->col == P_RED){
@@ -287,6 +285,6 @@ BOOLEAN test_for_winner(struct player * next_player,
       }
     }
   }
-  
+
   return has_moves;
 }

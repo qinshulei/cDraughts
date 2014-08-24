@@ -15,6 +15,7 @@ void print_welcome(){
   printf("2) Display Winners\n");
   printf("3) Reset scoreboard\n");
   printf("4) Quit\n");
+  printf("please input you selection number: \n");
 }
 
 int main (int argc, char *argv[])
@@ -24,11 +25,11 @@ int main (int argc, char *argv[])
   BOOLEAN is_end = FALSE;
   char player_one[MAX_NAME_LEN+1];
   char player_two[MAX_NAME_LEN+1];
-  struct result game_result[SCOREBOARDSIZE];
+
   struct result last_result;
   char is_play_again = 'n';
 
-  init_scoreboard(game_result);
+  init_scoreboard(scoreboard);
 
   do{
     print_welcome();
@@ -50,7 +51,7 @@ int main (int argc, char *argv[])
 
       do{
         play_game(player_one,player_two, &last_result);
-        add_to_scoreboard(game_result, &last_result);
+        add_to_scoreboard(scoreboard, &last_result);
         printf("do you want play again with same player. y or n :\n");
         is_play_again = getchar();
         read_rest_of_line();
@@ -60,10 +61,10 @@ int main (int argc, char *argv[])
       } while (TRUE);
       break;
     case 2:
-      display_scoreboard(game_result);
+      display_scoreboard(scoreboard);
       break;
     case 3:
-      reset_scoreboard(game_result);
+      reset_scoreboard(scoreboard);
       break;
     case 4:
       is_end = TRUE;

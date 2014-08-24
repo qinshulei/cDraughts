@@ -22,10 +22,12 @@ void add_to_scoreboard(struct result * scoreboard,
     struct result * latest_game)
 {
   int i;
+
+  size_t len = sizeof(struct result);
   for( i = SCOREBOARDSIZE - 1 ; i > 0 ; i--){
-    memcpy((scoreboard + i),(scoreboard + i - 1),sizeof(struct result));
+    memcpy((scoreboard + i), (scoreboard + (i - 1)), len);
   }
-  memcpy(scoreboard,latest_game,sizeof(struct result));
+  memcpy(scoreboard, latest_game, sizeof(struct result));
 }
 
 /* Req 11 - Initialises the scoreboard and sets all the strings to be 
@@ -40,14 +42,15 @@ void reset_scoreboard(struct result * scoreboard)
 void display_scoreboard(struct result * scoreboard)
 {
   int i;
+  size_t len = sizeof(struct result);
 
   printf("APT English Draughts Tournament - History of Games Played.\n");
   printf("==========================================================\n");
   printf("| Winner                     | Loser                     |\n");
   printf("| -------------------------- | ------------------------- |\n");
   for( i=0; i < SCOREBOARDSIZE; i++){
-    if(! strcmp((scoreboard + i)->won,"")){
-      printf("| %s | %s |\n",(scoreboard + i)->won,(scoreboard + i)->lost);
+    if(strcmp((scoreboard + i)->won,"") != 0){
+      printf("| %-26s | %-25s |\n",(scoreboard + i)->won,(scoreboard + i)->lost);
     }
   }
 }
