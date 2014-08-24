@@ -63,7 +63,7 @@ void player_turn(struct player * current,
   enum move_type current_move_type;
 
   do {
-    printf("It is %s's turn. the color is : %s .Please enter a move [press enter or ctrl-D to quit the current game]:",current->name, current->col == P_RED ? "red" : "white");
+    printf("It is %s's turn. the color is %s.Please enter a move [press enter or ctrl-D to quit the current game]:",current->name, current->col == P_RED ? "red" : "white");
     scanf("%o,%o-%o,%o", &current_move.start.x, &current_move.start.y,&current_move.end.x,&current_move.end.y);
     read_rest_of_line();
     current_move_type = is_valid_move( current_move, current, board);
@@ -181,6 +181,8 @@ BOOLEAN test_for_winner(struct player * next_player,
   struct move possible_king_move_left,possible_king_move_right;
   BOOLEAN has_moves = TRUE;
 
+  //return TRUE;
+
   for( i = 0; i <  BOARDHEIGHT; i++ ){
     for (j = 0; j < BOARDWIDTH; j++) {
       if(board[i][j] == RED && next_player->col == P_RED){
@@ -285,5 +287,6 @@ BOOLEAN test_for_winner(struct player * next_player,
       }
     }
   }
+  
   return has_moves;
 }

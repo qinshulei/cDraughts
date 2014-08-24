@@ -41,13 +41,13 @@ void display_scoreboard(struct result * scoreboard)
 {
   int i;
 
-  printf("APT English Draughts Tournament - History of Games Played.");
-  printf("==========================================================");
-  printf("| Winner                     | Loser                     |");
-  printf("| -------------------------- | ------------------------- |");
+  printf("APT English Draughts Tournament - History of Games Played.\n");
+  printf("==========================================================\n");
+  printf("| Winner                     | Loser                     |\n");
+  printf("| -------------------------- | ------------------------- |\n");
   for( i=0; i < SCOREBOARDSIZE; i++){
     if(! strcmp((scoreboard + i)->won,"")){
-      printf("| %s | %s |",(scoreboard + i)->won,(scoreboard + i)->lost);
+      printf("| %s | %s |\n",(scoreboard + i)->won,(scoreboard + i)->lost);
     }
   }
 }

@@ -51,9 +51,10 @@ int main (int argc, char *argv[])
       do{
         play_game(player_one,player_two, &last_result);
         add_to_scoreboard(game_result, &last_result);
-        printf("do you want play again with same player.y or n :");
+        printf("do you want play again with same player. y or n :\n");
         is_play_again = getchar();
-        if(! is_play_again == 'y'){
+        read_rest_of_line();
+        if( !(is_play_again == 'y') ){
           break;
         }
       } while (TRUE);
