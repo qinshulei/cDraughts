@@ -24,32 +24,41 @@ void init_gameboard(enum cell_contents board[][BOARDWIDTH])
 void display_gameboard(enum cell_contents board[][BOARDWIDTH])
 {
   int i,j;
-  for(i = 0;i<BOARDHEIGHT;i++){
-    for (j = 0; j < BOARDHEIGHT; j++ ) {
-      printf("  ");
-      switch (board[i][j]) {
-      case EMPTY:
-        printf(" ");
-        break;
-      case RED:
-        printf(RED_DISPLAY);
-        break;
-      case WHITE:
-        printf(WHITE_DISPLAY);
-        break;
-      case K_RED:
-        printf(RED_KING_DISPLAY);
-        break;
-      case K_WHITE:
-        printf(WHITE_KING_DISPLAY);
-        break;
-      default:
-        ;
+
+  for(i = 0;i <= BOARDHEIGHT;i++){
+    for (j = 0; j <= BOARDWIDTH; j++ ) {
+      if(i == 0 && j == 0){
+        printf("     |");
+      } else if(i == 0){
+        printf("  %d  |", j - 1);
+      }else if(j == 0){
+        printf("  %d  |", i - 1);
+      }else {
+        printf("  ");
+        switch (board[i-1][j-1]) {
+        case EMPTY:
+          printf(" ");
+          break;
+        case RED:
+          printf(RED_DISPLAY);
+          break;
+        case WHITE:
+          printf(WHITE_DISPLAY);
+          break;
+        case K_RED:
+          printf(RED_KING_DISPLAY);
+          break;
+        case K_WHITE:
+          printf(WHITE_KING_DISPLAY);
+          break;
+        default:
+          ;
+        }
+        printf(WHITE_RESET);
+        printf("  |");
       }
-      printf(WHITE_RESET);
-      printf("  |");
     }
-    printf("\n------------------------------------------------\n");
+    printf("\n------------------------------------------------------\n");
   }
 
 }

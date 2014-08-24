@@ -25,6 +25,10 @@ int main (int argc, char *argv[])
   char player_one[MAX_NAME_LEN+1];
   char player_two[MAX_NAME_LEN+1];
   struct result game_result[SCOREBOARDSIZE];
+  struct result last_result;
+  char is_play_again = 'n';
+
+  init_scoreboard(game_result);
 
   do{
     print_welcome();
@@ -44,14 +48,21 @@ int main (int argc, char *argv[])
       scanf("%s",player_two);
       read_rest_of_line();
 
-      init_scoreboard(game_result);
-      play_game(player_one,player_two, game_result);
+      do{
+        play_game(player_one,player_two, &last_result);
+        add_to_scoreboard(game_result, &last_result);
+        printf("do you want play again with same player.y or n :");
+        is_play_again = getchar();
+        if(! is_play_again == 'y'){
+          break;
+        }
+      } while (TRUE);
       break;
     case 2:
-
+      display_scoreboard(game_result);
       break;
     case 3:
-
+      reset_scoreboard(game_result);
       break;
     case 4:
       is_end = TRUE;

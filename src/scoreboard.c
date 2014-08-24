@@ -21,20 +21,34 @@ void init_scoreboard(struct result * scoreboard)
 void add_to_scoreboard(struct result * scoreboard, 
     struct result * latest_game)
 {
-    /* Delete this comment and write your own comments and code here*/
+  int i;
+  for( i = SCOREBOARDSIZE - 1 ; i > 0 ; i--){
+    memcpy((scoreboard + i),(scoreboard + i - 1),sizeof(struct result));
+  }
+  memcpy(scoreboard,latest_game,sizeof(struct result));
 }
 
 /* Req 11 - Initialises the scoreboard and sets all the strings to be 
  * empty*/
 void reset_scoreboard(struct result * scoreboard)
 {
-    /* Delete this comment and write your own comments and code here*/
+  memset(scoreboard, '\0', 10*2*(MAX_NAME_LEN+1));
 }
 
 /* Req 10 - Displays a formatted printout of the last 10 winners and 
  * losers*/
 void display_scoreboard(struct result * scoreboard)
 {
-    /* Delete this comment and write your own comments and code here*/
+  int i;
+
+  printf("APT English Draughts Tournament - History of Games Played.");
+  printf("==========================================================");
+  printf("| Winner                     | Loser                     |");
+  printf("| -------------------------- | ------------------------- |");
+  for( i=0; i < SCOREBOARDSIZE; i++){
+    if(! strcmp((scoreboard + i)->won,"")){
+      printf("| %s | %s |",(scoreboard + i)->won,(scoreboard + i)->lost);
+    }
+  }
 }
 

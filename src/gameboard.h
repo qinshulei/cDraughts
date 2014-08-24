@@ -1,6 +1,6 @@
 /***********************************************************************
  * COSC1076 - Advanced Programming Techniques
- * Semester 2 2014 Assignment #1 
+ * Semester 2 2014 Assignment #1
  * Full Name        : EDIT HERE
  * Student Number   : EDIT HERE
  * Course Code      : EDIT HERE
@@ -28,7 +28,7 @@ enum cell_contents
 /* Global variable - this is an example of the occasional exemption to
  * the rule against global variables. Be aware that this should be the
  * only global variable in your program */
-static const enum cell_contents master_board[BOARDWIDTH][BOARDHEIGHT] =
+static const enum cell_contents master_board[BOARDHEIGHT][BOARDWIDTH] =
 {
     {RED, EMPTY, RED, EMPTY, RED, EMPTY, RED, EMPTY},
     {EMPTY, RED, EMPTY, RED, EMPTY, RED, EMPTY, RED},
